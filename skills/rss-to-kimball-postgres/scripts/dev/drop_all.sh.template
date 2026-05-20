@@ -1,0 +1,24 @@
+#!/usr/bin/env bash
+# drop_all.sh.template — copy to dev/drop_all.sh in your project and edit the
+# path to drop_all.sql if needed.
+#
+# DEV ONLY. Refuses to run unless ALLOW_DROP=1 is set, so it can't be invoked
+# accidentally from CI or a forgotten cron.
+
+set -euo pipefail
+
+if [[ "${ALLOW_DROP:-0}" != "1" ]]; then
+  echo "drop_all.sh: refusing to run without ALLOW_DROP=1" >&2
+  echo "    ALLOW_DROP=1 ./drop_all.sh" >&2
+  exit 1
+fi
+
+SCHEMA="${DEV_SCHEMA:-rss_dev}"
+DDL="${1:-ddl/drop_all.sql}"
+
+echo "==> dropping all tables in schema $SCHEMA"
+psql -v ON_ERROR_STOP=1 \
+     -c "CREATE SCHEMA IF NOT EXISTS $SCHEMA;" \
+     -c "SET search_path TO $SCHEMA;" \
+     -f "$DDL"
+echo "==> done"

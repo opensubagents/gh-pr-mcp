@@ -1,0 +1,20 @@
+#!/usr/bin/env bash
+# create_all.sh.template — copy to dev/create_all.sh in your project and edit
+# the path to create_all.sql if needed.
+#
+# Idempotent. Safe to run repeatedly. The DDL it executes uses
+# CREATE … IF NOT EXISTS throughout.
+
+set -euo pipefail
+
+SCHEMA="${DEV_SCHEMA:-rss_dev}"
+DDL="${1:-ddl/create_all.sql}"
+
+echo "==> ensuring schema $SCHEMA exists"
+psql -v ON_ERROR_STOP=1 -c "CREATE SCHEMA IF NOT EXISTS $SCHEMA;"
+
+echo "==> applying $DDL into $SCHEMA"
+psql -v ON_ERROR_STOP=1 \
+     -c "SET search_path TO $SCHEMA;" \
+     -f "$DDL"
+echo "==> done"

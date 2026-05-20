@@ -1,0 +1,57 @@
+=== source ===
+  /tmp/whats-new.rss.xml
+  7,985 bytes, RSS 2.0
+
+=== feed-level fields ===
+  title                What's new
+  description          A weekly digest of notable Claude Code features, with code snippets, demos, a...
+  link                 https://code.claude.com/docs
+  generator            Mintlify
+  lastBuildDate        Sat, 09 May 2026 18:05:02 GMT
+  link                 attrs={'href': 'https://code.claude.com/docs/en/whats-new/rss.xml', 'rel': 'self', 'type': 'application/rss+xml'}
+  copyright            Claude Code Docs
+  docs                 https://code.claude.com/docs
+
+=== items: 7 ===
+
+=== item-level fields (presence: N of 7) ===
+  category              7/7
+  encoded               7/7
+  guid                  7/7 attrs=['isPermaLink']
+  link                  7/7
+  pubDate               7/7
+  title                 7/7
+
+=== inferred value patterns (short fields) ===
+  category             a9.9.999–a9.9.999×4, a9.9.99–a9.9.99×2, a9.9.99–a9.9.999×1
+  guid                 9a9a99a99aaa9aaa×1, 99999aa99aa999aa×1, 9a999a99999a9a99×1
+  link                 aaaaa://aaaa.aaaaaa.aaa/aaaa/aa/aaaaa-aaa#aaaa-99×7
+  pubDate              Aaa, 99 Aaa 9999 99:99:99 AAA×7
+  title                Aaaa 99×7
+
+=== date range ===
+  earliest: 2026-04-04T03:22:37+00:00
+  latest:   2026-05-09T02:56:31+00:00
+  span:     34 days, 7 dates
+
+=== content:encoded analysis ===
+  bodies present: 7/7
+  text length:    min=367, max=529, avg=444
+  links per body: min=1, max=1, total=7
+  <strong> per:   min=1, max=4, total=19
+  <code> per:     min=2, max=8, total=24
+
+=== first item (verbatim, namespaces stripped) ===
+  title: Week 19
+  link: https://code.claude.com/docs/en/whats-new#week-19
+  guid: 2f9e72f35dcf5dae
+  category: v2.1.128–v2.1.136
+  pubDate: Sat, 09 May 2026 02:56:31 GMT
+  encoded: <p><strong>Plugins load from <code>.zip</code> archives and URLs</strong>: <code>--plugin-dir</code> now accepts <code>.zip</code> files, and <code>--plugin-url</code> fetches a plugin archive for ...
+
+=== suggested next steps ===
+  1. Read references/kimball-cheatsheet.md for terminology.
+  2. Pick a grain for the fact table (default: one row per item per snapshot).
+  3. List dimensions: dim_date, dim_release (SCD2), dim_feed_source (SCD1).
+  4. Add bridge / extra dims ONLY if a query needs them.
+  5. Generate DDL using references/postgres16-idioms.md as the template.
