@@ -1,0 +1,11 @@
+node_modules/
+*.log
+.DS_Store
+
+# Persisted device-flow token — never commit
+.gh-pr-mcp-token
+~/.gh-pr-mcp-token
+
+# tsc / tsx build artifacts
+dist/
+*.tsbuildinfo

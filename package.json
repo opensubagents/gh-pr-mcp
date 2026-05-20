@@ -1,0 +1,17 @@
+{
+  "name": "gh-pr-mcp",
+  "version": "0.1.0",
+  "description": "MCP server: edit some files, open a PR. One tool call, one commit.",
+  "type": "module",
+  "bin": { "gh-pr-mcp": "./src/gh-pr-mcp.ts" },
+  "scripts": {
+    "start": "tsx src/gh-pr-mcp.ts"
+  },
+  "dependencies": {
+    "@modelcontextprotocol/sdk": "^1.0.0"
+  },
+  "devDependencies": {
+    "tsx": "^4.19.0",
+    "@types/node": "^22.0.0"
+  }
+}
